@@ -45,18 +45,6 @@ public class BoardDTO {
         boardDTO.setBoardHits(board.getBoardHits());
         boardDTO.setBoardCreatedTime(board.getCreatedTime());
         boardDTO.setBoardUpdatedTime(board.getUpdatedTime());
-        if (board.getFileAttached() == 0) {
-            boardDTO.setFileAttached(board.getFileAttached()); // 0
-        } else {
-            boardDTO.setFileAttached(board.getFileAttached()); // 1
-            // 파일 이름을 가져가야 함.
-            // orginalFileName, storedFileName : board_file_table(BoardFileEntity)
-            // join
-            // select * from board_table b, board_file_table bf where b.id=bf.board_id
-            // and where b.id=?
-            boardDTO.setOriginalFileName(board.getBoardFileEntityList().get(0).getOriginalFileName());
-            boardDTO.setStoredFileName(board.getBoardFileEntityList().get(0).getStoredFileName());
-        }
 
         return boardDTO;
     }
