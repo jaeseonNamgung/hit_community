@@ -12,7 +12,7 @@ public class BoardController {
     }
 
     @PostMapping("/save")
-    public String savee(@ModelAttribute ){
+    public String save(@ModelAttribute ){
         return null;
     }
 
