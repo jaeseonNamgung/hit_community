@@ -1,6 +1,7 @@
 package com.hit.community.dto;
 
 
+import com.hit.community.entity.Board;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,27 +35,27 @@ public class boardDTO {
         this.boardCreatedTime = boardCreatedTime;
     }
 
-    public static BoardDTO toBoardDTO(BoardEntity boardEntity) {
+    public static BoardDTO toBoardDTO(Board board) {
         BoardDTO boardDTO = new BoardDTO();
-        boardDTO.setId(boardEntity.getId());
-        boardDTO.setBoardWriter(boardEntity.getBoardWriter());
-        boardDTO.setBoardPass(boardEntity.getBoardPass());
-        boardDTO.setBoardTitle(boardEntity.getBoardTitle());
-        boardDTO.setBoardContents(boardEntity.getBoardContents());
-        boardDTO.setBoardHits(boardEntity.getBoardHits());
-        boardDTO.setBoardCreatedTime(boardEntity.getCreatedTime());
-        boardDTO.setBoardUpdatedTime(boardEntity.getUpdatedTime());
-        if (boardEntity.getFileAttached() == 0) {
-            boardDTO.setFileAttached(boardEntity.getFileAttached()); // 0
+        boardDTO.setId(board.getId());
+        boardDTO.setBoardWriter(board.getBoardWriter());
+        boardDTO.setBoardPass(board.getBoardPass());
+        boardDTO.setBoardTitle(board.getBoardTitle());
+        boardDTO.setBoardContents(board.getBoardContents());
+        boardDTO.setBoardHits(board.getBoardHits());
+        boardDTO.setBoardCreatedTime(board.getCreatedTime());
+        boardDTO.setBoardUpdatedTime(board.getUpdatedTime());
+        if (board.getFileAttached() == 0) {
+            boardDTO.setFileAttached(board.getFileAttached()); // 0
         } else {
-            boardDTO.setFileAttached(boardEntity.getFileAttached()); // 1
+            boardDTO.setFileAttached(board.getFileAttached()); // 1
             // 파일 이름을 가져가야 함.
             // orginalFileName, storedFileName : board_file_table(BoardFileEntity)
             // join
             // select * from board_table b, board_file_table bf where b.id=bf.board_id
             // and where b.id=?
-            boardDTO.setOriginalFileName(boardEntity.getBoardFileEntityList().get(0).getOriginalFileName());
-            boardDTO.setStoredFileName(boardEntity.getBoardFileEntityList().get(0).getStoredFileName());
+            boardDTO.setOriginalFileName(board.getBoardFileEntityList().get(0).getOriginalFileName());
+            boardDTO.setStoredFileName(board.getBoardFileEntityList().get(0).getStoredFileName());
         }
 
         return boardDTO;
