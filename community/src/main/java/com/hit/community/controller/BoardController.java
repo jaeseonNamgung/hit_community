@@ -1,5 +1,6 @@
 package com.hit.community.controller;
 
+import com.hit.community.dto.BoardDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ public class BoardController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute ){
+    public String save(@ModelAttribute BoardDTO boardDTO){
         return null;
     }
 
