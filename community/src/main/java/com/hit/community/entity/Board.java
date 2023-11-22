@@ -44,7 +44,7 @@ public class Board extends Base {
         this.boardWriter = boardWriter;
         this.boardPass = boardPass;
         this.boardTitle = boardTitle;
-        this.boardContents = getBoardContents();
+        this.boardContents = boardContents;
         this.boardHits = boardHits;
         this.createdTime = boardCreatedTime;
         this.updatedTime = boardUpdatedTime;
