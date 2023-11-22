@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 // dto <-> entity
 
@@ -24,6 +25,7 @@ public class BoardService {
         boardRepository.save(board);
     }
 
+    @Transactional
     public List<BoardDTO> findAll() {
         List<Board> boardList = boardRepository.findAll();
         List<BoardDTO> boardDTOList = new ArrayList<>();
@@ -39,7 +41,12 @@ public class BoardService {
     }
 
     public BoardDTO findById(Long id) {
-
-        return null;
+        Optional<Board> optionalBoard = boardRepository.findById(id);
+        if(optionalBoard.isPresent()){
+            Board board = optionalBoard.get();
+            return board.toResponseDto();
+        }
+        else
+            return null;
     }
 }
