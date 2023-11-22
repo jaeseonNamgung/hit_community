@@ -4,8 +4,8 @@ import com.hit.community.dto.BoardDTO;
 import com.hit.community.entity.Board;
 import com.hit.community.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,5 +31,15 @@ public class BoardService {
             boardDTOList.add(board.toResponseDto());
         }
         return boardDTOList;
+    }
+
+    @Transactional
+    public void updateHits(Long id) {
+        boardRepository.updateHits(id);
+    }
+
+    public BoardDTO findById(Long id) {
+
+        return null;
     }
 }

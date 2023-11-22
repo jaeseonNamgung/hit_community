@@ -8,7 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
+    // update board_table set board_hits = board_hits+1 where id=?
     @Modifying
-    @Query(value = "update Board b set b.boardHits=b.boardHits+1 where b.id=:id")
+    @Query(value = "update Board b set b.boardHits=b.boardHits+1 where b.id=:id")   // entity 를 기준으로 작성한 쿼리
     void updateHits(@Param("id") Long id);
 }
