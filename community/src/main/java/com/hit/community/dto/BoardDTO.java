@@ -40,7 +40,7 @@ public class BoardDTO {
         this.boardWriter = boardWriter;
         this.boardPass = boardPass;
         this.boardTitle = boardTitle;
-        this.boardContents = getBoardContents();
+        this.boardContents = boardContents;
         this.boardHits = boardHits;
         this.boardCreatedTime = boardCreatedTime;
         this.boardUpdatedTime = boardUpdatedTime;
