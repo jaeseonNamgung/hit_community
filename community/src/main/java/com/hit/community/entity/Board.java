@@ -15,7 +15,7 @@ public class Board extends Base {
     private String boardWriter;
 
     @Column
-    private String boardPass;
+    private int boardPass;
 
     @Column
     private String boardTitle;

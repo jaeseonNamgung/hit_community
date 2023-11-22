@@ -1,10 +1,11 @@
 package com.hit.community.controller;
 
 import com.hit.community.dto.BoardDTO;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RequiredArgsConstructor
+@RestController
 @RequestMapping("/board")
 public class BoardController {
     @GetMapping("/save")
