@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 
 @Getter
-@Table(name = "board_table")
 @Entity
 public class Board extends Base {
     @Id
