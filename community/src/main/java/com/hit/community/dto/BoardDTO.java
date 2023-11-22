@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class BoardDTO {
     private Long id;
     private String boardWriter;
-    private int boardPass;
+    private Integer boardPass;
     private String boardTitle;
     private String boardContents;
     private int boardHits;                  // 조회수
@@ -30,7 +30,7 @@ public class BoardDTO {
     @Builder
     public BoardDTO(Long id,
                     String boardWriter,
-                    int boardPass,
+                    Integer boardPass,
                     String boardTitle,
                     String boardContents,
                     int boardHits,

@@ -20,7 +20,7 @@ public class Board extends Base {
     private String boardWriter;
 
     @Column // defalt 크기 255, null 가능
-    private int boardPass;
+    private Integer boardPass;
 
     @Column
     private String boardTitle;
@@ -34,7 +34,7 @@ public class Board extends Base {
     @Builder
     private Board(Long id,
                   String boardWriter,
-                  int boardPass,
+                  Integer boardPass,
                   String boardTitle,
                   String boardContents,
                   int boardHits,
