@@ -16,9 +16,9 @@ import java.time.LocalDateTime;
 public class Base {
     @CreationTimestamp
     @Column(updatable = false)
-    private LocalDateTime createdTime;
+    LocalDateTime createdTime;
 
     @UpdateTimestamp
     @Column(insertable = false)
-    private LocalDateTime updatedTime;
+    LocalDateTime updatedTime;
 }

@@ -27,25 +27,36 @@ public class BoardDTO {
     private String storedFileName;          // 서버 저장용 파일 이름
     private int fileAttached;               // 파일 첨부 여부(첨부 1, 미첨부 0)
 
-    public BoardDTO(Long id, String boardWriter, String boardTitle, int boardHits, LocalDateTime boardCreatedTime) {
+    @Builder
+    public BoardDTO(Long id,
+                    String boardWriter,
+                    int boardPass,
+                    String boardTitle,
+                    String boardContents,
+                    int boardHits,
+                    LocalDateTime boardCreatedTime,
+                    LocalDateTime boardUpdatedTime) {
         this.id = id;
         this.boardWriter = boardWriter;
+        this.boardPass = boardPass;
         this.boardTitle = boardTitle;
+        this.boardContents = getBoardContents();
         this.boardHits = boardHits;
         this.boardCreatedTime = boardCreatedTime;
+        this.boardUpdatedTime = boardUpdatedTime;
     }
 
-    public static BoardDTO toBoardDTO(Board board) {
-        BoardDTO boardDTO = new BoardDTO();
-        boardDTO.setId(board.getId());
-        boardDTO.setBoardWriter(board.getBoardWriter());
-        boardDTO.setBoardPass(board.getBoardPass());
-        boardDTO.setBoardTitle(board.getBoardTitle());
-        boardDTO.setBoardContents(board.getBoardContents());
-        boardDTO.setBoardHits(board.getBoardHits());
-        boardDTO.setBoardCreatedTime(board.getCreatedTime());
-        boardDTO.setBoardUpdatedTime(board.getUpdatedTime());
-
-        return boardDTO;
+    public Board toEntity(){
+        return Board.builder()
+                .id(id)
+                .boardWriter(boardWriter)
+                .boardPass(boardPass)
+                .boardTitle(boardTitle)
+                .boardContents(boardContents)
+                .boardHits(boardHits)
+                .boardCreatedTime(boardCreatedTime)
+                .boardUpdatedTime(boardUpdatedTime)
+                .build();
     }
+
 }
