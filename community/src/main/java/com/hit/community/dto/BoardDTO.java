@@ -7,9 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class BoardDTO {
@@ -18,7 +16,7 @@ public class BoardDTO {
     private Integer boardPass;
     private String boardTitle;
     private String boardContents;
-    private int boardHits;                  // 조회수
+    private int boardHits=0;                // 조회수
     private LocalDateTime boardCreatedTime; // 작성시간
     private LocalDateTime boardUpdatedTime; // 수정시간
 

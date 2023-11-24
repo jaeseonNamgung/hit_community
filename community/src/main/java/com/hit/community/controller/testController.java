@@ -1,0 +1,23 @@
+package com.hit.community.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/test")
+public class testController {
+
+    @GetMapping(path = "/hello")
+    public String hello(){
+        return "get hello";
+    }
+
+    @GetMapping("/path-variable/{id}")
+    public String pathVariable(@PathVariable(name = "id") String pathName){
+        System.out.println("PathVariable : "+pathName);
+        return pathName;
+    }
+
+}
