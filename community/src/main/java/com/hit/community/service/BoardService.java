@@ -83,7 +83,7 @@ public class BoardService {
 
         // 목록: id, writer, title, hits, createdTime
         Page<BoardDTO> boardDTOs =
-                boards.map(board -> new BoardDTO(board.getId(), board.getBoardWriter(),
+                boards.map(board -> new BoardDTO(board.getId(), board.getUserId(), board.getBoardWriter(),
                         board.getBoardTitle(), board.getBoardHits(), board.getCreatedTime()));
         return boardDTOs;
     }

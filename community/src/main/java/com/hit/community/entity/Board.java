@@ -16,10 +16,13 @@ public class Board extends Base {
     @GeneratedValue(strategy = GenerationType.IDENTITY)     // auto_increment
     private Long id;
 
+    @Column
+    private Long userId;
+
     @Column(length = 20, nullable = true) // nullable = false
     private String boardWriter;
 
-    @Column // defalt 크기 255, null 가능
+    @Column // defalt는 크기 255, null 가능
     private Integer boardPass;
 
     @Column
@@ -33,6 +36,7 @@ public class Board extends Base {
 
     @Builder
     private Board(Long id,
+                  Long userId,
                   String boardWriter,
                   Integer boardPass,
                   String boardTitle,
@@ -41,6 +45,7 @@ public class Board extends Base {
                   LocalDateTime boardCreatedTime,
                   LocalDateTime boardUpdatedTime) {
         this.id = id;
+        this.userId = userId;
         this.boardWriter = boardWriter;
         this.boardPass = boardPass;
         this.boardTitle = boardTitle;
@@ -53,6 +58,7 @@ public class Board extends Base {
     public BoardDTO toResponseDto() {
         return BoardDTO.builder()
                 .id(id)
+                .userId(userId)
                 .boardWriter(boardWriter)
                 .boardPass(boardPass)
                 .boardTitle(boardTitle)

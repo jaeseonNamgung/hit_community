@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class BoardDTO {
     private Long id;
+    private Long userId;
     private String boardWriter;
     private Integer boardPass;
     private String boardTitle;
@@ -27,6 +28,7 @@ public class BoardDTO {
 
     @Builder
     public BoardDTO(Long id,
+                    Long userId,
                     String boardWriter,
                     Integer boardPass,
                     String boardTitle,
@@ -35,6 +37,7 @@ public class BoardDTO {
                     LocalDateTime boardCreatedTime,
                     LocalDateTime boardUpdatedTime) {
         this.id = id;
+        this.userId = userId;
         this.boardWriter = boardWriter;
         this.boardPass = boardPass;
         this.boardTitle = boardTitle;
@@ -46,11 +49,13 @@ public class BoardDTO {
 
     @Builder
     public BoardDTO(Long id,
+                    Long userId,
                     String boardWriter,
                     String boardTitle,
                     int boardHits,
                     LocalDateTime createdTime) {
         this.id = id;
+        this.userId = userId;
         this.boardWriter = boardWriter;
         this.boardTitle = boardTitle;
         this.boardHits = boardHits;
@@ -60,6 +65,7 @@ public class BoardDTO {
     public Board toEntity(){
         return Board.builder()
                 .id(id)
+                .userId(userId)
                 .boardWriter(boardWriter)
                 .boardPass(boardPass)
                 .boardTitle(boardTitle)
