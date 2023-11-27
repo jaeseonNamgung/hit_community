@@ -46,9 +46,14 @@ public class Comment extends Base{
     }
 
     public CommentDTO toResponseDTO(){
-
         return CommentDTO.builder()
-
+                .id(id)
+                .userId(userId)
+                .boardId(boardId)
+                .commentWriter(commentWriter)
+                .commentContents(commentContents)
+                .commentCreatedTime(createdTime)
+                .commentUpdatedTime(updatedTime)
                 .build();
     }
 }

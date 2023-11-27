@@ -27,7 +27,7 @@ public class BoardDTO {
     private int fileAttached=0;             // 파일 첨부 여부(첨부 1, 미첨부 0)
 
     @Builder
-    public BoardDTO(Long id,
+    private BoardDTO(Long id,
                     Long userId,
                     String boardWriter,
                     Integer boardPass,
