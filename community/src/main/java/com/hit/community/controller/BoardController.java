@@ -1,6 +1,7 @@
 package com.hit.community.controller;
 
 import com.hit.community.dto.BoardDTO;
+import com.hit.community.dto.UserDTO;
 import com.hit.community.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,9 +25,9 @@ public class BoardController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute BoardDTO boardDTO){
+    public String save(@ModelAttribute BoardDTO boardDTO, @ModelAttribute UserDTO userDTO){
         //System.out.println("boardDTO = " + boardDTO);
-        boardService.save(boardDTO);
+        boardService.save(boardDTO, userDTO);
         return "home";
     }
 
@@ -56,8 +57,8 @@ public class BoardController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute BoardDTO boardDTO, Model model) {
-        BoardDTO board = boardService.update(boardDTO);
+    public String update(@ModelAttribute BoardDTO boardDTO, UserDTO userDTO, Model model) {
+        BoardDTO board = boardService.update(boardDTO, userDTO);
         model.addAttribute("board", board);
         return "detail";
         //return "redirect:/board/" + boardDTO.getId();

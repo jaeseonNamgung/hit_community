@@ -1,6 +1,8 @@
 package com.hit.community.controller;
 
 import com.hit.community.dto.BoardDTO;
+import com.hit.community.dto.UserDTO;
+import com.hit.community.entity.User;
 import com.hit.community.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,8 +23,8 @@ public class RestBoardController {
 
     // Create a new board
     @PostMapping
-    public ResponseEntity<BoardDTO> createBoard(@RequestBody BoardDTO boardDTO) {
-        boardService.save(boardDTO);
+    public ResponseEntity<BoardDTO> createBoard(@RequestBody BoardDTO boardDTO, @RequestBody UserDTO userDTO) {
+        boardService.save(boardDTO, userDTO);
         return ResponseEntity.ok(boardDTO);
     }
 
@@ -47,14 +49,16 @@ public class RestBoardController {
 
     // Update a board
     @PutMapping("/{id}")
-    public ResponseEntity<BoardDTO> updateBoard(@PathVariable Long id, @RequestBody BoardDTO boardDTO) {
+    public ResponseEntity<BoardDTO> updateBoard(@PathVariable Long id,
+                                                @RequestBody BoardDTO boardDTO,
+                                                @RequestBody UserDTO userDTO) {
         BoardDTO existingBoard = boardService.findById(id);
         if (existingBoard == null) {
             return ResponseEntity.notFound().build();
         }
         int hits = existingBoard.getBoardHits();
         boardDTO.setId(id); boardDTO.setBoardHits(hits);
-        BoardDTO updatedBoard = boardService.update(boardDTO);
+        BoardDTO updatedBoard = boardService.update(boardDTO, userDTO);
         return ResponseEntity.ok(updatedBoard);
     }
 

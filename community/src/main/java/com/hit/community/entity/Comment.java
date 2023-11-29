@@ -16,11 +16,11 @@ public class Comment extends Base{
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
     private Long id;
 
-    @Column
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
-    @Column
-    private Long boardId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Board board;
 
     @Column
     private String commentWriter;
@@ -30,15 +30,15 @@ public class Comment extends Base{
 
     @Builder
     private Comment(Long id,
-                    Long userId,
-                    Long boardId,
+                    User user,
+                    Board board,
                     String commentWriter,
                     String commentContents,
                     LocalDateTime commentCreatedTime,
                     LocalDateTime commentUpdatedTime){
         this.id=id;
-        this.userId=userId;
-        this.boardId=boardId;
+        this.user=user;
+        this.board=board;
         this.commentWriter=commentWriter;
         this.commentContents=commentContents;
         this.createdTime=commentCreatedTime;
@@ -48,8 +48,8 @@ public class Comment extends Base{
     public CommentDTO toResponseDTO(){
         return CommentDTO.builder()
                 .id(id)
-                .userId(userId)
-                .boardId(boardId)
+                .userId(user.getId())
+                .boardId(board.getId())
                 .commentWriter(commentWriter)
                 .commentContents(commentContents)
                 .commentCreatedTime(createdTime)

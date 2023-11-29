@@ -1,7 +1,9 @@
 package com.hit.community.service;
 
 import com.hit.community.dto.BoardDTO;
+import com.hit.community.dto.UserDTO;
 import com.hit.community.entity.Board;
+import com.hit.community.entity.User;
 import com.hit.community.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,8 +26,9 @@ public class BoardService {
     //@Autowired
     private final BoardRepository boardRepository;
 
-    public void save(BoardDTO boardDTO) {
-        Board board = boardDTO.toEntity();
+    public void save(BoardDTO boardDTO, UserDTO userDTO) {
+        User user = userDTO.toEntity();
+        Board board = boardDTO.toEntity(user);
         boardRepository.save(board);
     }
 
@@ -54,8 +57,9 @@ public class BoardService {
             return null;
     }
 
-    public BoardDTO update(BoardDTO boardDTO) {
-        Board board = boardDTO.toEntity();
+    public BoardDTO update(BoardDTO boardDTO, UserDTO userDTO) {
+        User user = userDTO.toEntity();
+        Board board = boardDTO.toEntity(user);
         boardRepository.save(board);
         return findById(boardDTO.getId());
     }
@@ -83,7 +87,7 @@ public class BoardService {
 
         // 목록: id, writer, title, hits, createdTime
         Page<BoardDTO> boardDTOs =
-                boards.map(board -> new BoardDTO(board.getId(), board.getUserId(), board.getBoardWriter(),
+                boards.map(board -> new BoardDTO(board.getId(), board.getUser().getId(), board.getBoardWriter(),
                         board.getBoardTitle(), board.getBoardHits(), board.getCreatedTime()));
         return boardDTOs;
     }

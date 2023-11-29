@@ -1,6 +1,8 @@
 package com.hit.community.dto;
 
+import com.hit.community.entity.Board;
 import com.hit.community.entity.Comment;
+import com.hit.community.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,15 +39,17 @@ public class CommentDTO {
         this.commentUpdatedTime = commentUpdatedTime;
     }
 
-    public Comment toEntity() {
+    // entity 를 dto 메서드의 매개변수로 받는 방법에 문제가 있는가?
+    public Comment toEntity(User user, Board board) {
         return Comment.builder()
                 .id(id)
-                .userId(userId)
-                .boardId(boardId)
+                .user(user)
+                .board(board)
                 .commentWriter(commentWriter)
                 .commentContents(commentContents)
                 .commentCreatedTime(commentCreatedTime)
                 .commentUpdatedTime(commentUpdatedTime)
                 .build();
     }
+
 }

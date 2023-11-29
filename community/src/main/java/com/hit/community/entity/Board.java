@@ -16,8 +16,8 @@ public class Board extends Base {
     @GeneratedValue(strategy = GenerationType.IDENTITY)     // auto_increment
     private Long id;
 
-    @Column
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
     @Column(length = 20, nullable = true) // nullable = false
     private String boardWriter;
@@ -36,7 +36,7 @@ public class Board extends Base {
 
     @Builder
     private Board(Long id,
-                  Long userId,
+                  User user,
                   String boardWriter,
                   Integer boardPass,
                   String boardTitle,
@@ -45,7 +45,9 @@ public class Board extends Base {
                   LocalDateTime boardCreatedTime,
                   LocalDateTime boardUpdatedTime) {
         this.id = id;
-        this.userId = userId;
+
+        this.user = user;
+
         this.boardWriter = boardWriter;
         this.boardPass = boardPass;
         this.boardTitle = boardTitle;
@@ -58,7 +60,7 @@ public class Board extends Base {
     public BoardDTO toResponseDto() {
         return BoardDTO.builder()
                 .id(id)
-                .userId(userId)
+                .userId(user.getId())
                 .boardWriter(boardWriter)
                 .boardPass(boardPass)
                 .boardTitle(boardTitle)
