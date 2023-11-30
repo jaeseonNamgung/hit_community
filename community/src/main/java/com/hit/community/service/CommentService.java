@@ -40,26 +40,25 @@ public class CommentService {
         Optional<UserAccount> optionalUserAccount = userRepository.findById(commentDTO.getUserId());
 
         if (optionalBoard.isPresent() && optionalUserAccount.isPresent()) {
-            Board baord = optionalBoard.get();
+            Board board = optionalBoard.get();
             UserAccount userAccount = optionalUserAccount.get();
-            Comment comment = commentDTO.toEntity(userAccount, baord);
+            Comment comment = commentDTO.toEntity(userAccount, board);
             return commentRepository.save(comment).getId();
         } else {
             return null;
         }
     }
 
-//    public List<CommentDTO> findAll(Long boardId) {
-//        Board boardEntity = boardRepository.findById(boardId).get();
-//        List<Comment> commentEntityList = commentRepository.findAllByBoardEntityOrderByIdDesc(boardEntity);
-//        /* EntityList -> DTOList */
-//        List<CommentDTO> commentDTOList = new ArrayList<>();
-//        for (Comment comment: commentEntityList) {
-//            //CommentDTO commentDTO = CommentDTO.toCommentDTO(comment, boardId);
-//            CommentDTO commentDTO = comment.toResponseDTO();
-//            commentDTOList.add(commentDTO);
-//        }
-//        return commentDTOList;
-//    }
+    public List<CommentDTO> findAll(Long boardId) {
+        Board boardEntity = boardRepository.findById(boardId).get();
+        List<Comment> commentEntityList = commentRepository.findAllByBoardOrderByIdDesc(boardEntity);
+        /* EntityList -> DTOList */
+        List<CommentDTO> commentDTOList = new ArrayList<>();
+        for (Comment comment: commentEntityList) {
+            CommentDTO commentDTO = comment.toResponseDTO();
+            commentDTOList.add(commentDTO);
+        }
+        return commentDTOList;
+    }
 
 }
