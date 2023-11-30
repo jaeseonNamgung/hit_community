@@ -20,20 +20,21 @@ import java.util.Map;
 public class RestBoardController {
 
     private final BoardService boardService;
-    private final ObjectMapper objectMapper;
+    //private final ObjectMapper objectMapper;
 
     // Create a new board
+//    @PostMapping
+//    public ResponseEntity<BoardDTO> createBoard(@RequestBody Map<String, Object> requestData) {
+//        BoardDTO boardDTO = objectMapper.convertValue(requestData.get("boardDTO"), BoardDTO.class);
+//        UserDTO userDTO = objectMapper.convertValue(requestData.get("userDTO"), UserDTO.class);
+//
+//        boardService.save(boardDTO, userDTO);
+//        return ResponseEntity.ok(boardDTO);
+//    }
+
     @PostMapping
-    public ResponseEntity<BoardDTO> createBoard(@RequestBody Map<String, Object> requestData) {
-        BoardDTO boardDTO = objectMapper.convertValue(requestData.get("boardDTO"), BoardDTO.class);
-        UserDTO userDTO = objectMapper.convertValue(requestData.get("userDTO"), UserDTO.class);
-
-        System.out.println("---");
-        System.out.println("boardDTO = " + boardDTO);
-        System.out.println("userDTO = " + userDTO);
-        System.out.println("---");
-
-        boardService.save(boardDTO, userDTO);
+    public ResponseEntity<BoardDTO> createBoard(@RequestBody BoardDTO boardDTO) {
+        boardService.save(boardDTO);
         return ResponseEntity.ok(boardDTO);
     }
 

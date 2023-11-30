@@ -5,6 +5,7 @@ import com.hit.community.dto.UserDTO;
 import com.hit.community.entity.Board;
 import com.hit.community.entity.UserAccount;
 import com.hit.community.repository.BoardRepository;
+import com.hit.community.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,6 +26,7 @@ public class BoardService {
 
     //@Autowired
     private final BoardRepository boardRepository;
+    private final UserRepository userRepository;
 
     public void save(BoardDTO boardDTO, UserDTO userDTO) {
         //
@@ -35,6 +37,20 @@ public class BoardService {
         Board board = boardDTO.toEntity(userAccount);
         boardRepository.save(board);
     }
+
+    public void save(BoardDTO boardDTO){
+        Optional<UserAccount> optionalUserAccount = userRepository.findById(boardDTO.getUserId());
+
+        if(optionalUserAccount.isPresent()){
+            UserAccount userAccount = optionalUserAccount.get();
+            //
+            // board 의 작성자를 userDTO 에서 받아오는 코드 작성 필요 (userDTO 병합 후 작성)
+            //
+            //
+            boardRepository.save(boardDTO.toEntity(userAccount));
+        }
+    }
+
 
     @Transactional
     public List<BoardDTO> findAll() {

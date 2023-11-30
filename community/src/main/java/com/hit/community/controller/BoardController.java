@@ -25,10 +25,10 @@ public class BoardController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute BoardDTO boardDTO, @ModelAttribute UserDTO userDTO){
+    public String save(@ModelAttribute BoardDTO boardDTO){
 //        System.out.println("boardDTO = " + boardDTO);
 //        System.out.println("userDTO = " + userDTO);
-        boardService.save(boardDTO, userDTO);
+        boardService.save(boardDTO);
         return "home";
     }
 
