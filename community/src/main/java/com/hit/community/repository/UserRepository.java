@@ -1,7 +1,7 @@
 package com.hit.community.repository;
 
-import com.hit.community.entity.User;
+import com.hit.community.entity.UserAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<UserAccount, Long> {
 }

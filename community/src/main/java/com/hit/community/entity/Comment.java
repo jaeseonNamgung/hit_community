@@ -17,7 +17,7 @@ public class Comment extends Base{
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private UserAccount userAccount;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Board board;
@@ -30,14 +30,14 @@ public class Comment extends Base{
 
     @Builder
     private Comment(Long id,
-                    User user,
+                    UserAccount userAccount,
                     Board board,
                     String commentWriter,
                     String commentContents,
                     LocalDateTime commentCreatedTime,
                     LocalDateTime commentUpdatedTime){
         this.id=id;
-        this.user=user;
+        this.userAccount = userAccount;
         this.board=board;
         this.commentWriter=commentWriter;
         this.commentContents=commentContents;
@@ -48,7 +48,7 @@ public class Comment extends Base{
     public CommentDTO toResponseDTO(){
         return CommentDTO.builder()
                 .id(id)
-                .userId(user.getId())
+                .userId(userAccount.getId())
                 .boardId(board.getId())
                 .commentWriter(commentWriter)
                 .commentContents(commentContents)

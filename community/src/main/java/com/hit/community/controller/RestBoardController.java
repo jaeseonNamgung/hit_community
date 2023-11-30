@@ -1,8 +1,8 @@
 package com.hit.community.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hit.community.dto.BoardDTO;
 import com.hit.community.dto.UserDTO;
-import com.hit.community.entity.User;
 import com.hit.community.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/boards")
@@ -20,10 +20,19 @@ import java.util.List;
 public class RestBoardController {
 
     private final BoardService boardService;
+    private final ObjectMapper objectMapper;
 
     // Create a new board
     @PostMapping
-    public ResponseEntity<BoardDTO> createBoard(@RequestBody BoardDTO boardDTO, @RequestBody UserDTO userDTO) {
+    public ResponseEntity<BoardDTO> createBoard(@RequestBody Map<String, Object> requestData) {
+        BoardDTO boardDTO = objectMapper.convertValue(requestData.get("boardDTO"), BoardDTO.class);
+        UserDTO userDTO = objectMapper.convertValue(requestData.get("userDTO"), UserDTO.class);
+
+        System.out.println("---");
+        System.out.println("boardDTO = " + boardDTO);
+        System.out.println("userDTO = " + userDTO);
+        System.out.println("---");
+
         boardService.save(boardDTO, userDTO);
         return ResponseEntity.ok(boardDTO);
     }
@@ -81,7 +90,5 @@ public class RestBoardController {
         model.addAttribute("endPage", endPage);
         return ResponseEntity.ok(boardPage);
     }
-
-
 
 }

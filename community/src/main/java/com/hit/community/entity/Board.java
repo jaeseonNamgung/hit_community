@@ -17,7 +17,7 @@ public class Board extends Base {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private UserAccount userAccount;
 
     @Column(length = 20, nullable = true) // nullable = false
     private String boardWriter;
@@ -36,7 +36,7 @@ public class Board extends Base {
 
     @Builder
     private Board(Long id,
-                  User user,
+                  UserAccount userAccount,
                   String boardWriter,
                   Integer boardPass,
                   String boardTitle,
@@ -46,7 +46,7 @@ public class Board extends Base {
                   LocalDateTime boardUpdatedTime) {
         this.id = id;
 
-        this.user = user;
+        this.userAccount = userAccount;
 
         this.boardWriter = boardWriter;
         this.boardPass = boardPass;
@@ -60,7 +60,7 @@ public class Board extends Base {
     public BoardDTO toResponseDto() {
         return BoardDTO.builder()
                 .id(id)
-                .userId(user.getId())
+                .userId(userAccount.getId())
                 .boardWriter(boardWriter)
                 .boardPass(boardPass)
                 .boardTitle(boardTitle)

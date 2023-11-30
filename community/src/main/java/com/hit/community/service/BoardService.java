@@ -3,7 +3,7 @@ package com.hit.community.service;
 import com.hit.community.dto.BoardDTO;
 import com.hit.community.dto.UserDTO;
 import com.hit.community.entity.Board;
-import com.hit.community.entity.User;
+import com.hit.community.entity.UserAccount;
 import com.hit.community.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -27,8 +27,12 @@ public class BoardService {
     private final BoardRepository boardRepository;
 
     public void save(BoardDTO boardDTO, UserDTO userDTO) {
-        User user = userDTO.toEntity();
-        Board board = boardDTO.toEntity(user);
+        //
+        // board 의 작성자를 userDTO 에서 받아오는 코드 작성 필요 (userDTO 병합 후 작성)
+        //
+        //
+        UserAccount userAccount = userDTO.toEntity();
+        Board board = boardDTO.toEntity(userAccount);
         boardRepository.save(board);
     }
 
@@ -47,6 +51,7 @@ public class BoardService {
         boardRepository.updateHits(id);
     }
 
+    @Transactional
     public BoardDTO findById(Long id) {
         Optional<Board> optionalBoard = boardRepository.findById(id);
         if(optionalBoard.isPresent()){
@@ -58,8 +63,8 @@ public class BoardService {
     }
 
     public BoardDTO update(BoardDTO boardDTO, UserDTO userDTO) {
-        User user = userDTO.toEntity();
-        Board board = boardDTO.toEntity(user);
+        UserAccount userAccount = userDTO.toEntity();
+        Board board = boardDTO.toEntity(userAccount);
         boardRepository.save(board);
         return findById(boardDTO.getId());
     }
@@ -68,6 +73,10 @@ public class BoardService {
         boardRepository.deleteById(id);
     }
 
+    //
+    // RestContoller 에 사용된 메서드가 아니기 때문에 추후에 삭제
+    //
+    //
     public Page<BoardDTO> paging(Pageable pageable) {
         int page = pageable.getPageNumber() - 1;
         int size = 3;   // 한 페이지에 보여줄 글 갯수
@@ -87,7 +96,7 @@ public class BoardService {
 
         // 목록: id, writer, title, hits, createdTime
         Page<BoardDTO> boardDTOs =
-                boards.map(board -> new BoardDTO(board.getId(), board.getUser().getId(), board.getBoardWriter(),
+                boards.map(board -> new BoardDTO(board.getId(), board.getUserAccount().getId(), board.getBoardWriter(),
                         board.getBoardTitle(), board.getBoardHits(), board.getCreatedTime()));
         return boardDTOs;
     }

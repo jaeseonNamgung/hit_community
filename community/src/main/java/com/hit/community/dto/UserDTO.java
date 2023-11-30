@@ -1,6 +1,6 @@
 package com.hit.community.dto;
 
-import com.hit.community.entity.User;
+import com.hit.community.entity.UserAccount;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserDTO {
     private Long id;
+    private String userName;
 
-    public User toEntity(){
-        return User.builder().id(id).build();
+    public UserAccount toEntity(){
+        return UserAccount.builder().id(id).userName(userName).build();
     }
 }

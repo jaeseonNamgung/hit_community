@@ -2,7 +2,7 @@ package com.hit.community.dto;
 
 
 import com.hit.community.entity.Board;
-import com.hit.community.entity.User;
+import com.hit.community.entity.UserAccount;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -63,10 +63,10 @@ public class BoardDTO {
         this.boardCreatedTime = createdTime;
     }
 
-    public Board toEntity(User user){
+    public Board toEntity(UserAccount userAccount){
         return Board.builder()
                 .id(id)
-                .user(user)
+                .userAccount(userAccount)
                 .boardWriter(boardWriter)
                 .boardPass(boardPass)
                 .boardTitle(boardTitle)
