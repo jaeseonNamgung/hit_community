@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b950b97f-2a8a-417c-8806-642b5d554ae4" name="변경" comment="hyun1" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/community">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/community">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;hyun32&quot;
+    }
+  ],
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hyun32&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3cb8e7c2-fe12-4a11-b140-15e4bf0fc6e7" />
+        <option name="url" value="https://github.com/HIT-ToyProject/backend.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2YUR2trkgdNVuXRyqx70t1RgGtu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.hit.community.entity" />
+      <recent name="com.hit.community.dto" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/community/src/main/resources/templates" />
+      <recent name="$PROJECT_DIR$/community/src/main/resources/templates/board" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.hit.community.repository" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CommunityApplication">
+    <configuration name="BoardRepositoryTest.crud" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/community" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.hit.community.repository.BoardRepositoryTest.crud&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CommunityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="community.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hit.community.CommunityApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.BoardRepositoryTest.crud" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="b950b97f-2a8a-417c-8806-642b5d554ae4" name="변경" comment="" />
+      <created>1700577968162</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700577968162</updated>
+      <workItem from="1700577969214" duration="9230000" />
+      <workItem from="1700619666197" duration="232000" />
+      <workItem from="1700620011107" duration="2000" />
+      <workItem from="1700620080341" duration="44549000" />
+      <workItem from="1700843921347" duration="22000" />
+      <workItem from="1700843990636" duration="91986000" />
+    </task>
+    <task id="LOCAL-00001" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700582921941</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700582921941</updated>
+    </task>
+    <task id="LOCAL-00002" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700582935847</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700582935847</updated>
+    </task>
+    <task id="LOCAL-00003" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700583234612</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700583234612</updated>
+    </task>
+    <task id="LOCAL-00004" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700583385286</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1700583385286</updated>
+    </task>
+    <task id="LOCAL-00005" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700583985065</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700583985065</updated>
+    </task>
+    <task id="LOCAL-00006" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700585408941</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700585408941</updated>
+    </task>
+    <task id="LOCAL-00007" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700586566086</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1700586566086</updated>
+    </task>
+    <task id="LOCAL-00008" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700624214204</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700624214204</updated>
+    </task>
+    <task id="LOCAL-00009" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700627973496</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700627973496</updated>
+    </task>
+    <task id="LOCAL-00010" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700629791497</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1700629791497</updated>
+    </task>
+    <task id="LOCAL-00011" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700644332801</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700644332801</updated>
+    </task>
+    <task id="LOCAL-00012" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700662753549</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700662753549</updated>
+    </task>
+    <task id="LOCAL-00013" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700663720411</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1700663720411</updated>
+    </task>
+    <task id="LOCAL-00014" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700666216954</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700666216954</updated>
+    </task>
+    <task id="LOCAL-00015" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700666635443</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700666635443</updated>
+    </task>
+    <task id="LOCAL-00016" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700667021061</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700667021061</updated>
+    </task>
+    <task id="LOCAL-00017" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700668034213</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1700668034213</updated>
+    </task>
+    <task id="LOCAL-00018" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700668420342</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1700668420342</updated>
+    </task>
+    <task id="LOCAL-00019" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700843434395</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1700843434395</updated>
+    </task>
+    <task id="LOCAL-00020" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1700992557929</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1700992557929</updated>
+    </task>
+    <task id="LOCAL-00021" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1701015064485</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1701015064485</updated>
+    </task>
+    <task id="LOCAL-00022" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1701016028323</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701016028323</updated>
+    </task>
+    <task id="LOCAL-00023" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1701022543568</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1701022543568</updated>
+    </task>
+    <task id="LOCAL-00024" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1701069972379</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701069972379</updated>
+    </task>
+    <task id="LOCAL-00025" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1701267818172</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1701267818172</updated>
+    </task>
+    <task id="LOCAL-00026" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1701335881963</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1701335881963</updated>
+    </task>
+    <task id="LOCAL-00027" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1701362172992</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1701362172992</updated>
+    </task>
+    <task id="LOCAL-00028" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1701366417326</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1701366417326</updated>
+    </task>
+    <task id="LOCAL-00029" summary="hyun">
+      <option name="closed" value="true" />
+      <created>1701417812996</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1701417812996</updated>
+    </task>
+    <task id="LOCAL-00030" summary="hyun1">
+      <option name="closed" value="true" />
+      <created>1701417839580</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1701417839580</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hyun" />
+    <MESSAGE value="hyun1" />
+    <option name="LAST_COMMIT_MESSAGE" value="hyun1" />
+  </component>
+</project>

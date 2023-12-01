@@ -20,11 +20,7 @@ public class Board extends Base {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private UserAccount userAccount;
-
-    // 삭제
-    @Column(length = 20, nullable = true) // nullable = false
-    private String boardWriter;
+    private Member member;
 
     @Column // defalt는 크기 255, null 가능
     private Integer boardPass;
@@ -43,8 +39,7 @@ public class Board extends Base {
 
     @Builder
     private Board(Long id,
-                  UserAccount userAccount,
-                  String boardWriter,
+                  Member member,
                   Integer boardPass,
                   String boardTitle,
                   String boardContents,
@@ -52,10 +47,7 @@ public class Board extends Base {
                   LocalDateTime boardCreatedTime,
                   LocalDateTime boardUpdatedTime) {
         this.id = id;
-
-        this.userAccount = userAccount;
-
-        this.boardWriter = boardWriter;
+        this.member = member;
         this.boardPass = boardPass;
         this.boardTitle = boardTitle;
         this.boardContents = boardContents;
@@ -67,8 +59,7 @@ public class Board extends Base {
     public BoardDTO toResponseDto() {
         return BoardDTO.builder()
                 .id(id)
-                .userId(userAccount.getId())
-                .boardWriter(boardWriter)
+                .userId(member.getId())
                 .boardPass(boardPass)
                 .boardTitle(boardTitle)
                 .boardContents(boardContents)

@@ -1,7 +1,7 @@
 package com.hit.community.service;
 
-import com.hit.community.dto.UserDTO;
-import com.hit.community.entity.UserAccount;
+import com.hit.community.dto.MemberDTO;
+import com.hit.community.entity.Member;
 import com.hit.community.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
 
-    public void save(UserDTO userDTO){
-        UserAccount userAccount = userDTO.toEntity();
-        userRepository.save(userAccount);
+    public void save(MemberDTO memberDTO){
+        Member member = memberDTO.toEntity();
+        userRepository.save(member);
     }
 
 }

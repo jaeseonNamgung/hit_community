@@ -1,9 +1,9 @@
 package com.hit.community.service;
 
 import com.hit.community.dto.BoardDTO;
-import com.hit.community.dto.UserDTO;
+import com.hit.community.dto.MemberDTO;
 import com.hit.community.entity.Board;
-import com.hit.community.entity.UserAccount;
+import com.hit.community.entity.Member;
 import com.hit.community.repository.BoardRepository;
 import com.hit.community.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,26 +27,18 @@ public class BoardService {
     private final BoardRepository boardRepository;
     private final UserRepository userRepository;
 
-    public void save(BoardDTO boardDTO, UserDTO userDTO) {
-        //
-        // board 의 작성자를 userDTO 에서 받아오는 코드 작성 필요 (userDTO 병합 후 작성)
-        //
-        //
-        UserAccount userAccount = userDTO.toEntity();
-        Board board = boardDTO.toEntity(userAccount);
+    public void save(BoardDTO boardDTO, MemberDTO memberDTO) {
+        Member member = memberDTO.toEntity();
+        Board board = boardDTO.toEntity(member);
         boardRepository.save(board);
     }
 
     public void save(BoardDTO boardDTO){
-        Optional<UserAccount> optionalUserAccount = userRepository.findById(boardDTO.getUserId());
+        Optional<Member> optionalUserAccount = userRepository.findById(boardDTO.getUserId());
 
         if(optionalUserAccount.isPresent()){
-            UserAccount userAccount = optionalUserAccount.get();
-            //
-            // board 의 작성자를 userDTO 에서 받아오는 코드 작성 필요 (userDTO 병합 후 작성)
-            //
-            //
-            boardRepository.save(boardDTO.toEntity(userAccount));
+            Member member = optionalUserAccount.get();
+            boardRepository.save(boardDTO.toEntity(member));
         }
     }
 
@@ -77,43 +69,15 @@ public class BoardService {
             return null;
     }
 
-    public BoardDTO update(BoardDTO boardDTO, UserDTO userDTO) {
-        UserAccount userAccount = userDTO.toEntity();
-        Board board = boardDTO.toEntity(userAccount);
+    public BoardDTO update(BoardDTO boardDTO, MemberDTO memberDTO) {
+        Member member = memberDTO.toEntity();
+        Board board = boardDTO.toEntity(member);
         boardRepository.save(board);
         return findById(boardDTO.getId());
     }
 
     public void delete(Long id) {
         boardRepository.deleteById(id);
-    }
-
-    //
-    // RestContoller 에 사용된 메서드가 아니기 때문에 추후에 삭제
-    //
-    //
-    public Page<BoardDTO> paging(Pageable pageable) {
-        int page = pageable.getPageNumber() - 1;
-        int size = 3;   // 한 페이지에 보여줄 글 갯수
-                        // 한 페이지당 size 개씩 글을 보여주고 정렬 기준은 id 기준으로 내림차순 정렬
-                        // page 위치에 있는 값은 0부터 시작
-        Page<Board> boards =
-                boardRepository.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id")));
-
-        System.out.println("boardEntities.getContent() = " + boards.getContent());               // 요청 페이지에 해당하는 글
-        System.out.println("boardEntities.getTotalElements() = " + boards.getTotalElements());   // 전체 글갯수
-        System.out.println("boardEntities.getNumber() = " + boards.getNumber());                 // DB로 요청한 페이지 번호
-        System.out.println("boardEntities.getTotalPages() = " + boards.getTotalPages());         // 전체 페이지 갯수
-        System.out.println("boardEntities.getSize() = " + boards.getSize());                     // 한 페이지에 보여지는 글 갯수
-        System.out.println("boardEntities.hasPrevious() = " + boards.hasPrevious());             // 이전 페이지 존재 여부
-        System.out.println("boardEntities.isFirst() = " + boards.isFirst());                     // 첫 페이지 여부
-        System.out.println("boardEntities.isLast() = " + boards.isLast());                       // 마지막 페이지 여부
-
-        // 목록: id, writer, title, hits, createdTime
-        Page<BoardDTO> boardDTOs =
-                boards.map(board -> new BoardDTO(board.getId(), board.getUserAccount().getId(), board.getBoardWriter(),
-                        board.getBoardTitle(), board.getBoardHits(), board.getCreatedTime()));
-        return boardDTOs;
     }
 
     public Page<BoardDTO> findAllPaged(Pageable pageable){

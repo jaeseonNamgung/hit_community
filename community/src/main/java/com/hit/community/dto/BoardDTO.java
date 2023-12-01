@@ -2,7 +2,7 @@ package com.hit.community.dto;
 
 
 import com.hit.community.entity.Board;
-import com.hit.community.entity.UserAccount;
+import com.hit.community.entity.Member;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 public class BoardDTO {
     private Long id;
     private Long userId;
-    private String boardWriter;
     private Integer boardPass;
     private String boardTitle;
     private String boardContents;
@@ -30,7 +29,6 @@ public class BoardDTO {
     @Builder
     private BoardDTO(Long id,
                     Long userId,
-                    String boardWriter,
                     Integer boardPass,
                     String boardTitle,
                     String boardContents,
@@ -39,7 +37,6 @@ public class BoardDTO {
                     LocalDateTime boardUpdatedTime) {
         this.id = id;
         this.userId = userId;
-        this.boardWriter = boardWriter;
         this.boardPass = boardPass;
         this.boardTitle = boardTitle;
         this.boardContents = boardContents;
@@ -57,17 +54,15 @@ public class BoardDTO {
                     LocalDateTime createdTime) {
         this.id = id;
         this.userId = userId;
-        this.boardWriter = boardWriter;
         this.boardTitle = boardTitle;
         this.boardHits = boardHits;
         this.boardCreatedTime = createdTime;
     }
 
-    public Board toEntity(UserAccount userAccount){
+    public Board toEntity(Member member){
         return Board.builder()
                 .id(id)
-                .userAccount(userAccount)
-                .boardWriter(boardWriter)
+                .member(member)
                 .boardPass(boardPass)
                 .boardTitle(boardTitle)
                 .boardContents(boardContents)

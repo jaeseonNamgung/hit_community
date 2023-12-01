@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class UserAccount {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
     private Long id;
@@ -18,7 +18,7 @@ public class UserAccount {
     private String userName;
 
     @Builder
-    private UserAccount(Long id, String userName){
+    private Member(Long id, String userName){
         this.id = id;
         this.userName = userName;
     }
