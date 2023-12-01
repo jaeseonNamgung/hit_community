@@ -2,6 +2,7 @@ package com.hit.community.entity;
 
 import com.hit.community.dto.BoardDTO;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 public class Board extends Base {
     @Id
@@ -21,6 +22,7 @@ public class Board extends Base {
     @ManyToOne(fetch = FetchType.LAZY)
     private UserAccount userAccount;
 
+    // 삭제
     @Column(length = 20, nullable = true) // nullable = false
     private String boardWriter;
 

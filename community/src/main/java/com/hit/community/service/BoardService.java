@@ -69,8 +69,8 @@ public class BoardService {
     @Transactional
     public BoardDTO findById(Long id) {
         Optional<Board> optionalBoard = boardRepository.findById(id);
-        if(optionalBoard.isPresent()){
-            Board board = optionalBoard.get();
+        if(optionalBoard.isPresent()) {
+            Board board = optionalBoard.get();  // get 사용 문제점 확인
             return board.toResponseDto();
         }
         else
