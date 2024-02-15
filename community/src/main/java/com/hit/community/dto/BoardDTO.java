@@ -2,7 +2,8 @@ package com.hit.community.dto;
 
 
 import com.hit.community.entity.Board;
-import com.hit.community.entity.UserAccount;
+import com.hit.community.entity.Category;
+import com.hit.community.entity.Member;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,11 +15,11 @@ import java.time.LocalDateTime;
 public class BoardDTO {
     private Long id;
     private Long userId;
-    private String boardWriter;
     private Integer boardPass;
     private String boardTitle;
     private String boardContents;
     private int boardHits=0;                        // 조회수
+    private Category category;
     private LocalDateTime boardCreatedTime;         // 작성시간
     private LocalDateTime boardUpdatedTime=null;    // 수정시간
 
@@ -30,20 +31,20 @@ public class BoardDTO {
     @Builder
     private BoardDTO(Long id,
                     Long userId,
-                    String boardWriter,
                     Integer boardPass,
                     String boardTitle,
                     String boardContents,
                     int boardHits,
+                    Category category,
                     LocalDateTime boardCreatedTime,
                     LocalDateTime boardUpdatedTime) {
         this.id = id;
         this.userId = userId;
-        this.boardWriter = boardWriter;
         this.boardPass = boardPass;
         this.boardTitle = boardTitle;
         this.boardContents = boardContents;
         this.boardHits = boardHits;
+        this.category = category;
         this.boardCreatedTime = boardCreatedTime;
         this.boardUpdatedTime = boardUpdatedTime;
     }
@@ -51,27 +52,27 @@ public class BoardDTO {
     @Builder
     public BoardDTO(Long id,
                     Long userId,
-                    String boardWriter,
                     String boardTitle,
                     int boardHits,
+                    Category category,
                     LocalDateTime createdTime) {
         this.id = id;
         this.userId = userId;
-        this.boardWriter = boardWriter;
         this.boardTitle = boardTitle;
+        this.category = category;
         this.boardHits = boardHits;
         this.boardCreatedTime = createdTime;
     }
 
-    public Board toEntity(UserAccount userAccount){
+    public Board toEntity(Member member){
         return Board.builder()
                 .id(id)
-                .userAccount(userAccount)
-                .boardWriter(boardWriter)
+                .member(member)
                 .boardPass(boardPass)
                 .boardTitle(boardTitle)
                 .boardContents(boardContents)
                 .boardHits(boardHits)
+                .category(category)
                 .boardCreatedTime(boardCreatedTime)
                 .boardUpdatedTime(boardUpdatedTime)
                 .build();

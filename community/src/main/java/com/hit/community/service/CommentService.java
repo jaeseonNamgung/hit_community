@@ -1,14 +1,12 @@
 package com.hit.community.service;
 
-import com.hit.community.dto.BoardDTO;
 import com.hit.community.dto.CommentDTO;
-import com.hit.community.dto.UserDTO;
 import com.hit.community.entity.Board;
 import com.hit.community.entity.Comment;
-import com.hit.community.entity.UserAccount;
+import com.hit.community.entity.Member;
 import com.hit.community.repository.BoardRepository;
 import com.hit.community.repository.CommentRepository;
-import com.hit.community.repository.UserRepository;
+import com.hit.community.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,44 +19,38 @@ import java.util.Optional;
 public class CommentService {
     private final CommentRepository commentRepository;
     private final BoardRepository boardRepository;
-    private final UserRepository userRepository;
+    private final MemberRepository memberRepository;
 
-//    public Long save(UserDTO userDTO, CommentDTO commentDTO) {
-//        /* 부모엔티티(BoardEntity) 조회 */
-//        Optional<Board> optionalBoardEntity = boardRepository.findById(commentDTO.getBoardId());
-//        if (optionalBoardEntity.isPresent()) {
-//            Board baord = optionalBoardEntity.get();
-//            Comment comment = commentDTO.toEntity(userDTO.toEntity(), baord);
-//            return commentRepository.save(comment).getId();
-//        } else {
-//            return null;
-//        }
-//    }
-
-    public Long save(CommentDTO commentDTO) {
+    // 추후 요구사항에 따라 리턴값을 다르게 바꾼다.
+    // 일단 void 로
+    public void save(CommentDTO commentDTO) {
         Optional<Board> optionalBoard = boardRepository.findById(commentDTO.getBoardId());
-        Optional<UserAccount> optionalUserAccount = userRepository.findById(commentDTO.getUserId());
-
+        Optional<Member> optionalUserAccount = memberRepository.findById(commentDTO.getUserId());
+        // exception 으로 다르게 처리할 수 있을거같다.
         if (optionalBoard.isPresent() && optionalUserAccount.isPresent()) {
             Board board = optionalBoard.get();
-            UserAccount userAccount = optionalUserAccount.get();
-            Comment comment = commentDTO.toEntity(userAccount, board);
-            return commentRepository.save(comment).getId();
+            Member member = optionalUserAccount.get();
+            Comment comment = commentDTO.toEntity(member, board);
+            commentRepository.save(comment);
         } else {
-            return null;
         }
     }
 
     public List<CommentDTO> findAll(Long boardId) {
-        Board boardEntity = boardRepository.findById(boardId).get();
-        List<Comment> commentEntityList = commentRepository.findAllByBoardOrderByIdDesc(boardEntity);
-        /* EntityList -> DTOList */
-        List<CommentDTO> commentDTOList = new ArrayList<>();
-        for (Comment comment: commentEntityList) {
-            CommentDTO commentDTO = comment.toResponseDTO();
-            commentDTOList.add(commentDTO);
+        Optional<Board> optionalBoard = boardRepository.findById(boardId);
+        // exception 으로 다르게 처리할 수 있을거같다.
+        if(optionalBoard.isPresent()){
+            Board boardEntity = optionalBoard.get();
+            List<Comment> commentEntityList = commentRepository.findAllByBoardOrderByIdDesc(boardEntity);
+            /* EntityList -> DTOList */
+            List<CommentDTO> commentDTOList = new ArrayList<>();
+            for (Comment comment: commentEntityList) {
+                CommentDTO commentDTO = comment.toResponseDTO();
+                commentDTOList.add(commentDTO);
+            }
+            return commentDTOList;
         }
-        return commentDTOList;
+        return null;
     }
 
 }
