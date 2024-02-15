@@ -6,7 +6,7 @@ import com.hit.community.entity.Comment;
 import com.hit.community.entity.Member;
 import com.hit.community.repository.BoardRepository;
 import com.hit.community.repository.CommentRepository;
-import com.hit.community.repository.UserRepository;
+import com.hit.community.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,13 +19,13 @@ import java.util.Optional;
 public class CommentService {
     private final CommentRepository commentRepository;
     private final BoardRepository boardRepository;
-    private final UserRepository userRepository;
+    private final MemberRepository memberRepository;
 
     // 추후 요구사항에 따라 리턴값을 다르게 바꾼다.
     // 일단 void 로
     public void save(CommentDTO commentDTO) {
         Optional<Board> optionalBoard = boardRepository.findById(commentDTO.getBoardId());
-        Optional<Member> optionalUserAccount = userRepository.findById(commentDTO.getUserId());
+        Optional<Member> optionalUserAccount = memberRepository.findById(commentDTO.getUserId());
         // exception 으로 다르게 처리할 수 있을거같다.
         if (optionalBoard.isPresent() && optionalUserAccount.isPresent()) {
             Board board = optionalBoard.get();

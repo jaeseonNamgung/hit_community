@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Board extends Base {
+public class Board extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)     // auto_increment
     private Long id;
@@ -28,11 +28,14 @@ public class Board extends Base {
     @Column
     private String boardTitle;
 
-    @Column(length = 800)
+    @Column // (length = 800)
     private String boardContents;
 
+    @Column(columnDefinition = "integer default 0", nullable = false)
+    private int boardHits;
+
     @Column
-    private int boardHits = 0;
+    private Category category;
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Comment> commentList = new ArrayList<>();
@@ -44,6 +47,7 @@ public class Board extends Base {
                   String boardTitle,
                   String boardContents,
                   int boardHits,
+                  Category category,
                   LocalDateTime boardCreatedTime,
                   LocalDateTime boardUpdatedTime) {
         this.id = id;
@@ -52,6 +56,7 @@ public class Board extends Base {
         this.boardTitle = boardTitle;
         this.boardContents = boardContents;
         this.boardHits = boardHits;
+        this.category = category;
         this.createdTime = boardCreatedTime;
         this.updatedTime = boardUpdatedTime;
     }

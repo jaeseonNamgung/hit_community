@@ -4,7 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b950b97f-2a8a-417c-8806-642b5d554ae4" name="변경" comment="hyun1" />
+    <list default="true" id="b950b97f-2a8a-417c-8806-642b5d554ae4" name="변경" comment="hyun1">
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/dto/BoardRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/dto/BoardResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/dto/MemberResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/dto/OAuthAttribute.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/BoardFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/MemberInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/repository/AddInfoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/repository/BoardFileRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/repository/MemberInfoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/service/ServiceExceptionLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/controller/RestBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/controller/RestBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/controller/RestUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/controller/RestMemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/dto/BoardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/dto/BoardDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/dto/MemberDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/dto/MemberRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/BaseTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/service/CommentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/community/src/main/java/com/hit/community/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/community/src/main/java/com/hit/community/service/MemberService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +64,7 @@
         <option value="JUnit5 Test Class" />
         <option value="HTML File" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -75,32 +104,37 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2YUR2trkgdNVuXRyqx70t1RgGtu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "모듈",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;6ab67799&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.hit.community.entity" />
@@ -170,6 +204,15 @@
       <workItem from="1700620080341" duration="44549000" />
       <workItem from="1700843921347" duration="22000" />
       <workItem from="1700843990636" duration="91986000" />
+      <workItem from="1701469466538" duration="4790000" />
+      <workItem from="1701641601126" duration="16575000" />
+      <workItem from="1702581570156" duration="7591000" />
+      <workItem from="1702769126521" duration="17936000" />
+      <workItem from="1703511461560" duration="575000" />
+      <workItem from="1703892366524" duration="601000" />
+      <workItem from="1703997721757" duration="4997000" />
+      <workItem from="1705588131531" duration="599000" />
+      <workItem from="1706107922550" duration="598000" />
     </task>
     <task id="LOCAL-00001" summary="hyun">
       <option name="closed" value="true" />
@@ -418,6 +461,7 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="hyun" />
     <MESSAGE value="hyun1" />
     <option name="LAST_COMMIT_MESSAGE" value="hyun1" />

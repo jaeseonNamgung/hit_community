@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Comment extends Base{
+public class Comment extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment
     private Long id;
