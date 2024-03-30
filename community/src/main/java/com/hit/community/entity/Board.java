@@ -1,6 +1,8 @@
 package com.hit.community.entity;
 
+import com.hit.community.constant.ActivityCategory;
 import com.hit.community.dto.BoardDTO;
+import com.hit.community.dto.SearchBoardResponse;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -34,8 +36,13 @@ public class Board extends BaseTime {
     @Column(columnDefinition = "integer default 0", nullable = false)
     private int boardHits;
 
+    @Enumerated(EnumType.STRING)
     @Column
     private Category category;
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    private ActivityCategory activityCategory;
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Comment> commentList = new ArrayList<>();
@@ -48,6 +55,7 @@ public class Board extends BaseTime {
                   String boardContents,
                   int boardHits,
                   Category category,
+                  ActivityCategory activityCategory,
                   LocalDateTime boardCreatedTime,
                   LocalDateTime boardUpdatedTime) {
         this.id = id;
@@ -57,6 +65,7 @@ public class Board extends BaseTime {
         this.boardContents = boardContents;
         this.boardHits = boardHits;
         this.category = category;
+        this.activityCategory = activityCategory;
         this.createdTime = boardCreatedTime;
         this.updatedTime = boardUpdatedTime;
     }
@@ -72,5 +81,17 @@ public class Board extends BaseTime {
                 .boardCreatedTime(createdTime)
                 .boardUpdatedTime(updatedTime)
                 .build();
+    }
+    public SearchBoardResponse toSearchBoardRequest() {
+        return SearchBoardResponse.of(
+                member.getName(),
+                boardTitle,
+                boardContents,
+                boardHits,
+                boardPass,
+                category,
+                activityCategory,
+                createdTime,
+                updatedTime);
     }
 }

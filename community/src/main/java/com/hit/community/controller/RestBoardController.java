@@ -61,7 +61,7 @@ public class RestBoardController {
     @GetMapping
     public ResponseEntity<Page<BoardDTO>> getAllBoards(Pageable pageable, Model model) {
         Page<BoardDTO> boardPage = boardService.findAllPaged(pageable);
-        int blockLimit = 5;
+        int blockLimit = 3; // 게시글 3개로 제한
         int startPage = (((int)(Math.ceil((double)pageable.getPageNumber() / blockLimit))) - 1) * blockLimit + 1;
         int endPage = Math.min((startPage + blockLimit - 1), boardPage.getTotalPages());
 
